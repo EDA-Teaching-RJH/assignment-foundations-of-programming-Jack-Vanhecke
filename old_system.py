@@ -5,12 +5,18 @@ d = ["Command", "Command", "Operations", "Security"]
 active = True
 
 def run_system_monolith():
+
+    fuel = 100                                              # Moved fuel variable up here so varible doesn't get reset to 100 each pass of while loop.
+    consumption = 20                                        # Adjusted consumption to be 20 instead of 0, so it has some function in later code.
+
     print("BOOTING SYSTEM...")
     print("...")
     print("WELCOME TO FLEET COMMAND")
     
     
     loading = 0
+
+
     while loading < 5:
         print("Loading module " + str(loading))
         loading += 1                                        # Added condition to increase value of loading by 1 to prevent infinite loop.
@@ -26,10 +32,10 @@ def run_system_monolith():
         
         opt = input("Select option: ")
         
-        if opt == "1":                                     # Changed = to ==, for comparison not assigining opt a value of 1.  
+        if opt == "1":                                      # Changed = to ==, for comparison not assigining opt a value of 1. 
             print("Current Crew List:")
             
-            for i in range(len(n)):                         # Changed range to be the length of the list n, rather than 10, since there are fewer than 10 data point in the list
+            for i in range(len(n)):                         # Changed range to be the length of the list n, rather than 10, since there are fewer than 10 data point in the list.
                 print(n[i] + " - " + r[i] + " - " + d[i])   # Added value from list d, so that all information is printed. List d was not being used before.
                 
         elif opt == "2":
@@ -53,14 +59,14 @@ def run_system_monolith():
                 d.pop(idx)
                 print("Removed.")
             else:
-                print("Invalid Name")
+                print("Invalid Name")                
             
         elif opt == "4":
             print("Analyzing...")
             count = 0
             
             for rank in r:
-                if rank == "Captain" or rank == "Commander":        # Adjusted logic to compare rank to "Captain" and "Commander", where before it treated the "Commander" string as a separate logical comparison which was incomplete. 
+                if rank == "Captain" or rank == "Commander":        # Adjusted logic to compare rank to "Captain" and "Commander", where before it treated the "Commander" string as a separate logical comparison which was incomplete.
                     count = count + 1
             print("High ranking officers: " + str(count))           # Added str() around count to force into a string, as concatination is not possible with integers 
             
@@ -77,21 +83,23 @@ def run_system_monolith():
             print("System Check OK")
         else:
             print("System Failure")
-            
-       
+
+
         if len(n) > 0:
             print("Database has entries.")
         if len(n) == 0:
             print("Database empty.")
 
         
-        fuel = 100
-        consumption = 0
-        while fuel > 0:
-            
+                                                        # Possible use for fuel and consumption variables.
+        if fuel > 0:                                    # Changed while loop to if statement to compare if fuel level is above 0
             print("Idling...")
-            break 
+            print(fuel)                                 # Added print to show fuel level, as a check that fuel level decreases.
+            fuel = fuel - consumption                   # Calculates new fuel level based on consumption (20).
+            break
+        else:
+            print("Out of fuel!")                       # Shows "Out of fuel!" if fuel reaches 0.
             
         print("End of cycle.")
 
-run_system_monolith()                                  # Added () to end of run_system_monolith, to close the definition.
+run_system_monolith()                                  # Added () to end of run_system_monolith, to close and call the definition.
