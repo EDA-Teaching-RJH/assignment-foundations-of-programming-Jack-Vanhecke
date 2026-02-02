@@ -29,7 +29,7 @@ def run_system_monolith():
         if opt == "1":                                     # Changed = to ==, for comparison not assigining opt a value of 1.  
             print("Current Crew List:")
             
-            for i in range(10):
+            for i in range(len(n)):                         # Changed range to be the length of the list n, rather than 10, since there are fewer than 10 data point in the list
                 print(n[i] + " - " + r[i]) 
                 
         elif opt == "2":
