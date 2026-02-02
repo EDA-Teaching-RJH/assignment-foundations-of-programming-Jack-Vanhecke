@@ -41,7 +41,21 @@ def add_member(names, ranks, divs, ids):
 add_member()
 
 def remove_member(names, ranks, devs, ids):
-    print("This is a placeholder")
+    
+    remove = input("Name to remove: ")
+           
+    if remove in names:                                   
+        idx = names.index(remove)
+        names.pop(idx)
+        ranks.pop(idx)
+        divs.pop(idx)
+        ids.pop(idx)
+
+        print("Removed.")
+
+    else:
+        print("Name could not be found and was therefore no data was removed.")
+        
 remove_member()
 
 def update_rank(names, ranks, ids):
