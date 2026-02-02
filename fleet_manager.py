@@ -25,7 +25,19 @@ def display_menu():
 display_menu()
 
 def add_member(names, ranks, divs, ids):
-    print("This is a placeholder")
+    
+    new_name = input("Name: ")
+    new_rank = input("Rank: ")
+    new_div = input("Division: ")
+    new_id = input("ID: ")
+           
+    names.append(new_name)
+    ranks.append(new_rank)                       
+    divs.append(new_div)
+    ids.append(new_id)    
+                               
+    print("Character added.")
+    
 add_member()
 
 def remove_member(names, ranks, devs, ids):
