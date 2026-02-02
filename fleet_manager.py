@@ -31,14 +31,19 @@ def add_member(names, ranks, divs, ids):
     new_rank = input("Rank: ")
     new_div = input("Division: ")
     new_id = input("ID: ")
-           
+    
+    for i in range(len(names)):
+        if ids[i] == new_id:
+            print("ID already taken.")
+            return           
+
     names.append(new_name)
     ranks.append(new_rank)                       
     divs.append(new_div)
-    ids.append(new_id)    
-
+    ids.append(new_id)
     print("Crew member added.")
-    return(names, ranks, divs, ids)
+
+    return
 
 
 def remove_member(names, ranks, divs, ids):
