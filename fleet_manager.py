@@ -37,7 +37,9 @@ def update_rank(names, ranks, ids):
 update_rank()
 
 def display_roster(names, ranks, divs, ids):
-    print("This is a placeholder")
+    for i in range(len(names)):
+        print(names[i] + " - " + ranks[i] + " - " + divs[i] + " - " + ids[i])
+    return
 display_menu()
 
 def search_crew(names, ranks, divs, ids):
