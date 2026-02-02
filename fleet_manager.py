@@ -3,14 +3,15 @@ def init_database():
     names = ["Picard", "Riker", "Data", "Worf"]
     ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
     divs = ["Command", "Command", "Operations", "Security"]
-    ids = [1, 2, 3, 4]
+    ids = ["1", "2", "3", "4"]
+
     return(names, ranks, divs, ids)
 
-init_database()
+
 
 def display_menu():
 
-    name_in = input("What is your full name?")
+    name_in = input("What is your full name? ")
     print("Currently logged in: " + name_in)
     print("Options: ")
     print("1. View Crew")
@@ -18,14 +19,14 @@ def display_menu():
     print("3. Remove Crew")
     print("4. Analyze Data")
     print("6. Exit")
-    option = input("Chosen Option: ")
-  
+    option = int(input("Chosen Option: "))
+
     return(option)
 
-display_menu()
+
 
 def add_member(names, ranks, divs, ids):
-    
+
     new_name = input("Name: ")
     new_rank = input("Rank: ")
     new_div = input("Division: ")
@@ -35,13 +36,13 @@ def add_member(names, ranks, divs, ids):
     ranks.append(new_rank)                       
     divs.append(new_div)
     ids.append(new_id)    
-                               
-    print("Character added.")
-    
-add_member()
 
-def remove_member(names, ranks, devs, ids):
-    
+    print("Crew member added.")
+    return(names, ranks, divs, ids)
+
+
+def remove_member(names, ranks, divs, ids):
+
     remove = input("Name to remove: ")
            
     if remove in names:                                   
@@ -55,52 +56,67 @@ def remove_member(names, ranks, devs, ids):
 
     else:
         print("Name could not be found and was therefore no data was removed.")
-        
-remove_member()
+    return(names, ranks, divs, ids)
+
 
 def update_rank(names, ranks, ids):
-    print("This is a placeholder")
-update_rank()
+
+    id_in = input("What is the ID of the character's rank you wish to update?")
+    new_rank = input("What is " + names[i] + "'s new rank?")
+
+    for i in range(len(names)):
+        if i[ids] == id_in:
+            i[ranks] = new_rank
+        else:
+            print("ID not found.")
+    return
+
 
 def display_roster(names, ranks, divs, ids):
+
     for i in range(len(names)):
         print(names[i] + " - " + ranks[i] + " - " + divs[i] + " - " + ids[i])
     return
-display_menu()
+
 
 def search_crew(names, ranks, divs, ids):
     print("This is a placeholder")
-search_crew()
+
 
 def filter_by_division(names, divs):
     print("This is a placeholder")
-filter_by_division()
+
 
 def calculate_payroll(ranks):
     print("This is a placeholder")
-calculate_payroll()
+
 
 def count_officers(ranks):
     print("This is a placeholder")
-count_officers()
+
 
 def main():
 
-    option = display_menu()
+    exit = False
+    names, ranks, divs, ids = init_database()
+    
+    while exit == False:
+        option = display_menu()
+        
   
-    if option == 1:
-        print("1")
-    elif option == 2:
-        print("2")
-    elif option == 3:
-        print("3")
-    elif option == 4:
-        print("4")
-    elif option == 5:
-        print("5")
-    elif option == 6:
-        print("6")
-    else:
-        print("Invalid Input")
+        if option == 1:
+            display_roster(names, ranks, divs, ids)
+        elif option == 2:
+            add_member(names, ranks, divs, ids)
+        elif option == 3:
+            remove_member(names, ranks, divs, ids)
+        elif option == 4:
+            print("4")
+        elif option == 5:
+            print("5")
+        elif option == 6:
+            exit = True
+        else:
+            print("Invalid Input")
 
 main()
