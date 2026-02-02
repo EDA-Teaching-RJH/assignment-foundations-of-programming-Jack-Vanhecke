@@ -1,26 +1,30 @@
-init_database():
+def init_database():
 
-display_menu():
+  names = ["Picard", "Riker", "Data", "Worf"]
+  ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
+  divs = ["Command", "Command", "Operations", "Security"]
+  ids = [1, 2, 3, 4]
 
-add_member(names, ranks, divs, ids):
+def display_menu():
 
-remove_member(names, ranks, devs, ids):
+def add_member(names, ranks, divs, ids):
 
-update_rank(names, ranks, ids):
+def remove_member(names, ranks, devs, ids):
 
-display_roster(names, ranks, divs, ids):
+def update_rank(names, ranks, ids):
 
-search_crew(names, ranks, divs, ids):
+def display_roster(names, ranks, divs, ids):
 
-filter_by_division(names, divs):
+def search_crew(names, ranks, divs, ids):
 
-claculate_payroll(ranks):
+def filter_by_division(names, divs):
 
-count_officers(ranks):
+def claculate_payroll(ranks):
+
+def count_officers(ranks):
+
+def main():
 
 
-main():
-
-  
 
 main()
