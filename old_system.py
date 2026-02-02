@@ -57,7 +57,7 @@ def run_system_monolith():
             count = 0
             
             for rank in r:
-                if rank == "Captain" or "Commander": 
+                if rank == "Captain" or rank == "Commander":        # Adjusted logic to compare rank to "Captain" and "Commander", where before it treated the "Commander" string as a separate logical comparison which was incomplete. 
                     count = count + 1
             print("High ranking officers: " + str(count))           # Added str() around count to force into a string, as concatination is not possible with integers 
             
