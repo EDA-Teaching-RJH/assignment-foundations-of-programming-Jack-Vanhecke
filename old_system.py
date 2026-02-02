@@ -30,7 +30,7 @@ def run_system_monolith():
             print("Current Crew List:")
             
             for i in range(len(n)):                         # Changed range to be the length of the list n, rather than 10, since there are fewer than 10 data point in the list
-                print(n[i] + " - " + r[i]) 
+                print(n[i] + " - " + r[i] + " - " + d[i])   # Added value from list d, so that all information is printed. List d was not being used before.
                 
         elif opt == "2":
             new_name = input("Name: ")
