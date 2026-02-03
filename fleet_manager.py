@@ -95,10 +95,11 @@ def display_roster(names, ranks, divs, ids):
 
 
 def search_crew(names, ranks, divs, ids):
-    term = input("What term do you want to search for?")
+    term = input("What term do you want to search for? ")
     for i in range(len(names)):
-        if names[i] == term:
-            print()
+        if (term.lower()) in (names[i].lower()):
+            print(names[i] + " - " + ranks[i] + " - " + divs[i] + " - " + ids[i])
+        
 
 
 def filter_by_division(names, divs):
