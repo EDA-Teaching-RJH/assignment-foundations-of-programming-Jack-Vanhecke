@@ -37,9 +37,11 @@ def add_member(names, ranks, divs, ids):
     for i in range(len(names)):
         if new_rank != "Admiral V" and new_rank != "Admiral IV" and new_rank != "Admiral III" and new_rank != "Admiral II" and new_rank != "Admiral I" and new_rank != "Captain" and new_rank != "Commander" and new_rank != "Lieutenant Commander" and new_rank != "Lieutenant" and new_rank != "Lieutenant Junior Grade" and new_rank != "Ensign" and new_rank != "Petty Officer":
             print("Not an accepted rank.")
-            if ids[i] == new_id:
-                print("ID already taken.")
-                return
+            return
+        
+        if ids[i] == new_id:
+            print("ID already taken.")
+            return
 
     names.append(new_name)
     ranks.append(new_rank)                       
@@ -73,17 +75,20 @@ def update_rank(names, ranks, ids):
 
     id_in = input("What is the ID of the character's rank you wish to update?")
 
+    if id_in not in ids:
+        print("No ID found.")
+        return
+
     for i in range(len(ids)):
         if ids[i] == id_in:
             id_name = names[i]
 
     print(id_name + " is currently a " + ranks[i])
     new_rank = input("What is " + id_name + "'s new rank? ")
+    
+    ranks[i] = new_rank
 
-    for i in range(len(names)):
-        if ids[i] == id_in:
-            ranks[i] = new_rank
-            break
+    print(id_name + "'s Rank Updated.")
     return
 
 
