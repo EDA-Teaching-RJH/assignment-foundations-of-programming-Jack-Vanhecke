@@ -120,29 +120,30 @@ def calculate_payroll(ranks):
     pay = 0
     for i in range(len(ranks)):
         if ranks[i] == "Petty Officer":
-            pay =+ 100
+            pay += 100
         elif ranks[i] == "Ensign":
-            pay =+ 200
+            pay += 200
         elif ranks[i] == "Lieutenant Junior Grade":
-            pay =+ 300
+            pay += 300
         elif ranks[i] == "Lieutenant":
-            pay =+ 400
+            pay += 400
         elif ranks[i] == "Lieutenant Commander":
-            pay =+ 500
+            pay += 500
         elif ranks[i] == "Commander":
             pay += 750
         elif ranks[i] == "Captain":
-            pay =+ 1000
+            pay += 1000
         elif ranks[i] == "Admiral I":
-            pay =+ 1250
+            pay += 1250
         elif ranks[i] == "Admiral II":
-            pay =+ 1500
+            pay += 1500
         elif ranks[i] == "Admiral III":
-            pay =+ 2000
+            pay += 2000
         elif ranks[i] == "Admiral IV":
-            pay =+ 3000
+            pay += 3000
         elif ranks[i] == "Admiral V":
-            pay =+ 4000
+            pay += 4000
+
     print("The paycheck for this ship is £" + str(pay))
 
 def count_officers(ranks):
@@ -185,4 +186,4 @@ def main():
         else:
             print("Invalid Input")
 
-main()  # I have no clue about Star Trek lore, so dont be suprised if I have missed some ranks.
+main()  # I have no clue about Star Trek lore, so dont be suprised if I have missed some ranks. Wikipedia was a large source of the star trek knowledge for this.
