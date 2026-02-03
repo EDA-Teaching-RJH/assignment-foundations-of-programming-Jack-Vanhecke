@@ -8,7 +8,6 @@ def init_database():
     return(names, ranks, divs, ids)
 
 
-
 def display_menu():
 
     name_in = input("What is your full name? ")
@@ -20,12 +19,12 @@ def display_menu():
     print("4. Update Crew Member Rank.")
     print("5. Search Database")
     print("6. Filter by Division.")
-    print("7. Calculate Payroll.")
-    print("8. Exit")
+    print("7. Display number of Officers")
+    print("8. Calculate Payroll.")
+    print("9. Exit")
     option = int(input("Chosen Option: "))
 
     return(option)
-
 
 
 def add_member(names, ranks, divs, ids):
@@ -96,7 +95,10 @@ def display_roster(names, ranks, divs, ids):
 
 
 def search_crew(names, ranks, divs, ids):
-    print("This is a placeholder")
+    term = input("What term do you want to search for?")
+    for i in range(len(names)):
+        if names[i] == term:
+            print()
 
 
 def filter_by_division(names, divs):
@@ -111,7 +113,7 @@ def count_officers(ranks):
     
     count = 0
     for i in range(len(ranks)):
-        if ranks == "Captain" or ranks == "Commander":
+        if ranks[i] == "Captain" or ranks[i] == "Commander":
             count += 1
     return(count)
 
@@ -134,12 +136,14 @@ def main():
         elif option == 4:
             update_rank(names, ranks, ids)
         elif option == 5:
-            print(count_officers(ranks) + " officers in database.")
-        elif option == 6:
             search_crew(names, ranks, divs, ids)
+        elif option == 6:
+            filter_by_division(names, divs)
         elif option == 7:
-            calculate_payroll(ranks)
+            print(str(count_officers(ranks)) + " officers in database.")
         elif option == 8:
+            calculate_payroll(ranks)
+        elif option == 9:
             exit = True
             print("Exiting...")
         else:
