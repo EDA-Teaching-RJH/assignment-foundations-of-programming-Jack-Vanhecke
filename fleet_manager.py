@@ -1,7 +1,7 @@
 def init_database():
 
     names = ["Picard", "Riker", "Data", "Worf"]
-    ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
+    ranks = ["Captain", "Commander", "Lieutenant Commander", "Lieutenant"]
     divs = ["Command", "Command", "Operations", "Security"]
     ids = ["1", "2", "3", "4"]
 
@@ -33,9 +33,11 @@ def add_member(names, ranks, divs, ids):
     new_id = input("ID: ")
     
     for i in range(len(names)):
-        if ids[i] == new_id:
-            print("ID already taken.")
-            return           
+        if new_rank != "Admiral V" and new_rank != "Admiral IV" and new_rank != "Admiral III" and new_rank != "Admiral II" and new_rank != "Admiral I" and new_rank != "Captain" and new_rank != "Commander" and new_rank != "Lieutenant Commander" and new_rank != "Lieutenant" and new_rank != "Lieutenant Junior Grade" and new_rank != "Ensign" and new_rank != "Petty Officer":
+            print("Not an accepted rank.")
+            if ids[i] == new_id:
+                print("ID already taken.")
+                return
 
     names.append(new_name)
     ranks.append(new_rank)                       
@@ -48,20 +50,21 @@ def add_member(names, ranks, divs, ids):
 
 def remove_member(names, ranks, divs, ids):
 
-    remove = input("Name to remove: ")
+    remove = input("ID to remove: ")
            
-    if remove in names:                                   
-        idx = names.index(remove)
+    if remove in ids:                                   
+        idx = ids.index(remove)
+
+        print(names[idx] + " Removed.")
+
         names.pop(idx)
         ranks.pop(idx)
         divs.pop(idx)
         ids.pop(idx)
 
-        print("Removed.")
-
     else:
-        print("Name could not be found and was therefore no data was removed.")
-    return(names, ranks, divs, ids)
+        print("Name could not be found, therefore no data was removed.")
+    return
 
 
 def update_rank(names, ranks, ids):
@@ -104,7 +107,7 @@ def main():
 
     exit = False
     names, ranks, divs, ids = init_database()
-    
+
     while exit == False:
         option = display_menu()
         
@@ -124,4 +127,4 @@ def main():
         else:
             print("Invalid Input")
 
-main()
+main()  # I have no clue about Star Trek lore, so dont be suprised if I have missed some ranks.
