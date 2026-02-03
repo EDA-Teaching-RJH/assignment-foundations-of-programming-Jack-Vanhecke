@@ -108,12 +108,42 @@ def search_crew(names, ranks, divs, ids):
 
 
 def filter_by_division(names, divs):
-    print("This is a placeholder")
+    print("Which divisions do you want to filter by?")
+    division_in = input("Command, Opperations or Sciences? ")
+    
+    for i in range(len(divs)):
+        if divs[i] == division_in:
+            print(names[i])
 
 
 def calculate_payroll(ranks):
-    print("This is a placeholder")
-
+    pay = 0
+    for i in range(len(ranks)):
+        if ranks[i] == "Petty Officer":
+            pay =+ 100
+        elif ranks[i] == "Ensign":
+            pay =+ 200
+        elif ranks[i] == "Lieutenant Junior Grade":
+            pay =+ 300
+        elif ranks[i] == "Lieutenant":
+            pay =+ 400
+        elif ranks[i] == "Lieutenant Commander":
+            pay =+ 500
+        elif ranks[i] == "Commander":
+            pay += 750
+        elif ranks[i] == "Captain":
+            pay =+ 1000
+        elif ranks[i] == "Admiral I":
+            pay =+ 1250
+        elif ranks[i] == "Admiral II":
+            pay =+ 1500
+        elif ranks[i] == "Admiral III":
+            pay =+ 2000
+        elif ranks[i] == "Admiral IV":
+            pay =+ 3000
+        elif ranks[i] == "Admiral V":
+            pay =+ 4000
+    print("The paycheck for this ship is £" + str(pay))
 
 def count_officers(ranks):
     
