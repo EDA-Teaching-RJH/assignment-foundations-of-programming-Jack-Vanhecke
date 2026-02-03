@@ -73,13 +73,18 @@ def remove_member(names, ranks, divs, ids):
 def update_rank(names, ranks, ids):
 
     id_in = input("What is the ID of the character's rank you wish to update?")
-    new_rank = input("What is " + names[i] + "'s new rank?")
+
+    for i in range(len(ids)):
+        if ids[i] == id_in:
+            id_name = names[i]
+
+    print(id_name + " is currently a " + ranks[i])
+    new_rank = input("What is " + id_name + "'s new rank? ")
 
     for i in range(len(names)):
-        if i[ids] == id_in:
-            i[ranks] = new_rank
-        else:
-            print("ID not found.")
+        if ids[i] == id_in:
+            ranks[i] = new_rank
+            break
     return
 
 
