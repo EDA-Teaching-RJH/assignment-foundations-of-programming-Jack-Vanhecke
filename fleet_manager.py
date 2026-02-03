@@ -17,8 +17,11 @@ def display_menu():
     print("1. View Crew")
     print("2. Add Crew")
     print("3. Remove Crew")
-    print("4. Analyze Data")
-    print("6. Exit")
+    print("4. Update Crew Member Rank.")
+    print("5. Search Database")
+    print("6. Filter by Division.")
+    print("7. Calculate Payroll.")
+    print("8. Exit")
     option = int(input("Chosen Option: "))
 
     return(option)
@@ -100,7 +103,12 @@ def calculate_payroll(ranks):
 
 
 def count_officers(ranks):
-    print("This is a placeholder")
+    
+    count = 0
+    for i in range(len(ranks)):
+        if ranks == "Captain" or ranks == "Commander":
+            count += 1
+    return(count)
 
 
 def main():
@@ -119,11 +127,16 @@ def main():
         elif option == 3:
             remove_member(names, ranks, divs, ids)
         elif option == 4:
-            print("4")
+            update_rank(names, ranks, ids)
         elif option == 5:
-            print("5")
+            print(count_officers(ranks) + " officers in database.")
         elif option == 6:
+            search_crew(names, ranks, divs, ids)
+        elif option == 7:
+            calculate_payroll(ranks)
+        elif option == 8:
             exit = True
+            print("Exiting...")
         else:
             print("Invalid Input")
 
