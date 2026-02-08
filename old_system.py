@@ -96,7 +96,6 @@ def run_system_monolith():
             print("Idling...")
             print(fuel)                                 # Added print to show fuel level, as a check that fuel level decreases.
             fuel = fuel - consumption                   # Calculates new fuel level based on consumption (20).
-            break
         else:
             print("Out of fuel!")                       # Shows "Out of fuel!" if fuel reaches 0.
             
